@@ -21,3 +21,12 @@ bash
 #### Check if the current directory has at least 50 GB free
   ```CheckDiskSpaceFree . 50```
 
+  
+##### How it works
+<ul>
+  <li> <b> df -BG: </b> Forces the df command to display sizes in gigabytes. </li>
+  <li> <b> awk 'NR==2 {print $4}':  </b> Grabs the 4th column (Available space) from the second line of the output. </li>
+  <li> <b> tr -d 'G': </b> Strips away the "G" character so Bash can perform an integer comparison. </li>
+  <li> <b> return 0 / return 1: </b> Returns standard shell exit codes so you can easily chain this function inside an if statement or a script <br> 
+         &nbsp;&nbsp;&nbsp; (e.g., CheckDiskSpaceFree /data 20 && ./run_backup.sh). </li>
+</ul>
