@@ -11,6 +11,7 @@ function DisplayBanner() {
   echo "$(basename -- "$0") - A tool to buld the kernel-fastheaders project w/ functions and echo output."
   DisplayLine
   echo "Number Of CPU Cores: $(nproc) "
+  echo "Available disk space: $(df -h . | awk 'NR==2 {print $4}') "
   echo " "
 }
 
@@ -33,6 +34,20 @@ function Pause() {
 echo "" # Adds a newline since the keypress won't create one
 }
 
+######################################################################################################################
+  # DEFINE DISK SPACE CHECKER FUNCTION #                                                                             #
+######################################################################################################################
+
+function Source_DiskSpace_SanityChecker_Function() {
+  if [ -f "CheckDiskSpaceFree.bfunc" ]; then
+      source "CheckDiskSpaceFree.bfunc"
+      echo "Success: CheckDiskSpaceFree.bfunc has been found and sourced."
+  else
+      echo "Error: CheckDiskSpaceFree.bfunc not found." >&2
+  fi
+}
+
+
 
 ######################################################################################################################
   # Step 1: Optimized Git Clone via CDN Bundle #                                                                     #
@@ -40,15 +55,17 @@ echo "" # Adds a newline since the keypress won't create one
 
 function Run_Step_1() {
   # Downloads the bulk of the kernel history via fast CDN.
-    ### TODO: Perform disk space check first!  Minimum 4.9GB as of Oct 09, 2026.  Boost by 500MB to 1GB to ensure future compatibility with larger bundles.
-    echo " Ready to download the kernerl history bundle, which requires a minimum of 5GB dis space and can take 30 minutes based on a 300MB internet speed."
+    echo " Ready to download the kernerl history bundle, which requires a minimum of 5GB disk space and can take 30 minutes based on a 300MB internet speed."
     Pause
+    CheckDiskSpaceFree . 6 # Confirm 6GB of space available before continuing...
     echo "Downloading the bulk of the kernel history via fast CDN..." 
     git clone linux-stable.git.bundle fast-headers-linux
     NewLine
 
   # Initializes your repository locally from the bundle.
-    ### TODO: Perform disk space check first!
+    echo "Ready to initialize your repository locally..."
+    Pause
+    CheckDiskSpaceFree . 5 # Confirm 5GB of space available before continuing...
     echo "Initializing your repository locally from the bundle..."
     git clone linux-stable.git.bundle fast-headers-linux
     NewLine
@@ -115,10 +132,13 @@ function GenerateDefConfig() {
 
   # The Benchmark
   function RunBenchmarkedBuild() {
-    echo "Compiles the kernel using all available CPU threads (-j) while tracking execution time..."
-    time make -j"$(nproc)"
-      # Compiles the kernel using all available CPU threads (-j) while tracking execution time.
-    NewLine
+   echo "Ready to compile your kernel."
+   Pause
+   CheckDiskSpaceFree . 50 # Confirm 50GB of space available before continuing...
+   echo "Compiles the kernel using all available CPU threads (-j) while tracking execution time..."
+   time make -j"$(nproc)"
+     # Compiles the kernel using all available CPU threads (-j) while tracking execution time.
+   NewLine
 }
 
 
@@ -127,6 +147,7 @@ function GenerateDefConfig() {
 #######################################################################################################################    
 
 DisplayBanner
+Source_DiskSpace_SanityChecker_Function
 Pause
 
 ### Step 1 ###
