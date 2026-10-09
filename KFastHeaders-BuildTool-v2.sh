@@ -8,11 +8,10 @@
 ######################################################################################################################
   
 function DisplayBanner() {
-  DisplayLine
+  echo " " 
   echo "$(basename -- "$0") - A tool to buld the kernel-fastheaders project w/ functions and echo output."
-  DisplayLine
-  echo "Number Of CPU Cores: $(nproc) "
-  echo "Available disk space: $(df -h . | awk 'NR==2 {print $4}') "
+    echo "  Number Of CPU Cores: $(nproc) "
+    echo "  Available disk space: $(df -h . | awk 'NR==2 {print $4}') "
   echo " "
 }
 
@@ -21,7 +20,7 @@ function NewLine() {
 }
 
 function DisplayLine() {
-  echo "--------------------------------------------------------------------------------------------"
+  echo "-----------------------------------------------------------------------------------------------------------"
 }
 
 function NewLineCinema() {
