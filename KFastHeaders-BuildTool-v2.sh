@@ -8,6 +8,7 @@
 ######################################################################################################################
   
 function DisplayBanner() {
+  DisplayLine
   echo "$(basename -- "$0") - A tool to buld the kernel-fastheaders project w/ functions and echo output."
   DisplayLine
   echo "Number Of CPU Cores: $(nproc) "
@@ -39,8 +40,8 @@ echo "" # Adds a newline since the keypress won't create one
 ######################################################################################################################
 
 function Source_Colors_Config() {
-  if [ -f "Colors2.conf" ]; then
-      source "Colors2.conf"
+  if [ -f "./Colors2.conf" ]; then
+      source "./Colors2.conf"
       echo "Success: Colors2.conf has been found and sourced."
   else
       echo "Error: Colors2.conf not found." >&2
@@ -48,8 +49,8 @@ function Source_Colors_Config() {
 }
 
 function Source_DiskSpace_SanityChecker_Function() {
-  if [ -f "CheckDiskSpaceFree.bfunc" ]; then
-      source "CheckDiskSpaceFree.bfunc"
+  if [ -f "./CheckDiskSpaceFree.bfunc" ]; then
+      source "./CheckDiskSpaceFree.bfunc"
       echo "Success: CheckDiskSpaceFree.bfunc has been found and sourced."
   else
       echo "Error: CheckDiskSpaceFree.bfunc not found." >&2
