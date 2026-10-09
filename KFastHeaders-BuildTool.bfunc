@@ -56,7 +56,18 @@ function Source_DiskSpace_SanityChecker_Function() {
   fi
 }
 
+######################################################################################################################
+  # DEFINE DISK SPACE CHECKER FUNCTION #                                                                             #
+######################################################################################################################
 
+function Source_DiskSpace_SanityChecker_Function() {
+  if [ -f "./CheckDiskSpaceFree.bfunc" ]; then
+      source "./CheckDiskSpaceFree.bfunc"
+      echo "Success: CheckDiskSpaceFree.bfunc has been found and sourced."
+  else
+      echo "Error: CheckDiskSpaceFree.bfunc not found." >&2
+  fi
+}
 
 ######################################################################################################################
   # Step 1: Optimized Git Clone via CDN Bundle #                                                                     #
