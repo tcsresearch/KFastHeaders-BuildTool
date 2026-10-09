@@ -19,4 +19,5 @@ Try_Source() {
 }
 
 # Call the function with the first command-line argument
-try_source "$1"
+### FIXME: must specify Try_Source ./filename vs Try_Source filename or the file wont be found.
+Try_Source "$1"
