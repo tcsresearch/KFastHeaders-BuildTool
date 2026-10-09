@@ -4,7 +4,7 @@
 # Taken From: https://share.google/aimode/f7uslf6jVOkDBry2z
 
 ######################################################################################################################
-  # DEFINE FUNCTIONS #                                                                                               #
+  # DEFINE DISPLAY FUNCTIONS #                                                                                       #
 ######################################################################################################################
   
 function DisplayBanner() {
@@ -41,6 +41,8 @@ echo "" # Adds a newline since the keypress won't create one
 function Run_Step_1() {
   # Downloads the bulk of the kernel history via fast CDN.
     ### TODO: Perform disk space check first!  Minimum 4.9GB as of Oct 09, 2026.  Boost by 500MB to 1GB to ensure future compatibility with larger bundles.
+    echo " Ready to download the kernerl history bundle, which requires a minimum of 5GB dis space and can take 30 minutes based on a 300MB internet speed."
+    Pause
     echo "Downloading the bulk of the kernel history via fast CDN..." 
     git clone linux-stable.git.bundle fast-headers-linux
     NewLine
@@ -139,8 +141,10 @@ Pause
 
 ### Step 3 ###
 NewLineCinema
-InstallRequiredPackages
+# InstallRequiredPackages
 GenerateConfig
-RunBenchmarkedBuild
+# RunBenchmarkedBuild
+echo "To compile the kernel, source this file and run the RunBenchmarkedBuild() function."
+echo " "
 
 
