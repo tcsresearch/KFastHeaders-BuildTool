@@ -50,7 +50,7 @@
       # Generates a standard default kernel configuration file (.config).
 
   # The Benchmark
-    time make -j$(nproc)
+    time make -j"$(nproc)"
       # Compiles the kernel using all available CPU threads (-j) while tracking execution time.
 
 
