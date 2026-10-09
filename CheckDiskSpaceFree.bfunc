@@ -1,0 +1,24 @@
+CheckDiskSpaceFree() {
+    # Ensure both arguments are provided
+    if [ -z "$1" ] || [ -z "$2" ]; then
+        echo "Usage: CheckDiskSpaceFree <directory> <required_bg_gb>"
+        return 1
+    fi
+
+    local target_dir="$1"
+    local required_gb="$2"
+
+    # Extract available space in gigabytes using df
+    # 'df -BG' outputs sizes in 1024³-byte blocks with a 'G' suffix
+    local available_gb
+    available_gb=$(df -BG "$target_dir" | awk 'NR==2 {print $4}' | tr -d 'G')
+
+    # Compare available space with required space
+    if [ "$available_gb" -ge "$required_gb" ]; then
+        echo "Success: $target_dir has ${available_gb}GB free (Required: ${required_gb}GB)."
+        return 0
+    else
+        echo "Error: $target_dir only has ${available_gb}GB free (Required: ${required_gb}GB)."
+        return 1
+    fi
+}
