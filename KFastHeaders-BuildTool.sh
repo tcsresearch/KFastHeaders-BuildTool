@@ -1,4 +1,4 @@
-#/!bin/env bash
+#!/bin/env bash
 # KFastHeaders-BuildTool.sh - A tool to buld the kernel-fastheaders project.
 
 # Taken From: https://share.google/aimode/f7uslf6jVOkDBry2z
