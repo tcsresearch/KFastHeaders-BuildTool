@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Function to source a file from command-line argument
+Try_Source() {
+    local filepath="$1"
+
+    if [ -z "$filepath" ]; then
+        echo "Error: No file specified." >&2
+        return 1
+    fi
+
+    if [ -f "$filepath" ]; then
+        source "$filepath"
+        echo "Success: Sourced '$filepath'."
+    else
+        echo "Error: File '$filepath' not found." >&2
+        return 1
+    fi
+}
+
+# Call the function with the first command-line argument
+try_source "$1"
