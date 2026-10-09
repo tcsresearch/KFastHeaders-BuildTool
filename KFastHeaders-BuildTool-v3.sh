@@ -42,6 +42,7 @@ function Source_DiskSpace_SanityChecker_Function() {
 
 DisplayBanner
 Source_Colors_Config
+Source_Main_Functions
 Source_DiskSpace_SanityChecker_Function
 Pause
 
