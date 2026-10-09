@@ -173,7 +173,7 @@ Pause
 ### Step 3 ###
 NewLineCinema
 # InstallRequiredPackages
-GenerateConfig
+GenerateDefConfig
 # RunBenchmarkedBuild
 echo "To compile the kernel, source this file and run the RunBenchmarkedBuild() function."
 echo " "
