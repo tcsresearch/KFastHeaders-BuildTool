@@ -40,10 +40,11 @@ function Source_DiskSpace_SanityChecker_Function() {
   # MAIN PROGRAM #                                                                                                    #
 #######################################################################################################################    
 
-DisplayBanner
 Source_Colors_Config
 Source_Main_Functions
 Source_DiskSpace_SanityChecker_Function
+
+DisplayBanner
 Pause
 
 ### Step 1 ###
