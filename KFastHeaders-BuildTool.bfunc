@@ -10,8 +10,10 @@
 function DisplayBanner() {
   echo " " 
   echo "$(basename -- "$0") - A tool to buld the kernel-fastheaders project w/ functions and echo output."
+  echo "-----------------------------------------------------------------------------------------------------------"
     echo "  Number Of CPU Cores: $(nproc) "
     echo "  Available disk space: $(df -h . | awk 'NR==2 {print $4}') "
+  echo "-----------------------------------------------------------------------------------------------------------"
   echo " "
 }
 
