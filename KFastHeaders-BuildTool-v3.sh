@@ -7,30 +7,33 @@
   # DEFINE FUNCTIONS AND CONFIGS #                                                                                   #
 ######################################################################################################################
 
+CONF_DIR="$(pwd)/config"
+FUNC_DIR="$(pwd)/functions"
+
 function Source_Colors_Config() {
-  if [ -f "./Colors2.conf" ]; then
-      source "./Colors2.conf"
-      echo "Success: Colors2.conf has been found and sourced."
+  if [ -f "$CONF_DIR"/Colors2.conf ]; then
+      source "$CONF_DIR"/Colors2.conf
+      echo "Success: $CONF_DIR/Colors2.conf has been found and sourced."
   else
-      echo "Error: Colors2.conf not found." >&2
+      echo "ERROR: $CONF_DIR/Colors2.conf not found." >&2
   fi
 }
 
 function Source_Main_Functions() {
-  if [ -f "./KFastHeaders-BuildTool.bfunc" ]; then
-      source "./KFastHeaders-BuildTool.bfunc"
-      echo "Success: KFastHeaders-BuildTool.bfunc has been found and sourced."
+  if [ -f "$FUNC_DIR"/KFastHeaders-BuildTool.bfunc ]; then
+      source "$FUNC_DIR"/KFastHeaders-BuildTool.bfunc
+      echo "Success: $FUNC_DIR/KFastHeaders-BuildTool.bfunc has been found and sourced."
   else
-      echo "Error: KFastHeaders-BuildTool.bfunc not found." >&2
+      echo "ERROR: $FUNC_DIR/KFastHeaders-BuildTool.bfunc not found." >&2
   fi
 }
 
 function Source_DiskSpace_SanityChecker_Function() {
-  if [ -f "./CheckDiskSpaceFree.bfunc" ]; then
-      source "./CheckDiskSpaceFree.bfunc"
-      echo "Success: CheckDiskSpaceFree.bfunc has been found and sourced."
+  if [ -f "$FUNC_DIR"/CheckDiskSpaceFree.bfunc ]; then
+      source "$FUNC_DIR"/CheckDiskSpaceFree.bfunc
+      echo "Success: $FUNC_DIR/CheckDiskSpaceFree.bfunc has been found and sourced."
   else
-      echo "Error: CheckDiskSpaceFree.bfunc not found." >&2
+      echo "ERROR: $FUNC_DIR/CheckDiskSpaceFree.bfunc not found." >&2
   fi
 }
 
