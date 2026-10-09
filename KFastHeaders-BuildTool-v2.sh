@@ -38,21 +38,29 @@ echo "" # Adds a newline since the keypress won't create one
 
 function Run_Step_1() {
   # Downloads the bulk of the kernel history via fast CDN.
+    echo "Downloading the bulk of the kernel history via fast CDN..." 
     git clone linux-stable.git.bundle fast-headers-linux
+    NewLine
 
   # Initializes your repository locally from the bundle.
+    echo "Initializing your repository locally from the bundle..."
     git clone linux-stable.git.bundle fast-headers-linux
+    NewLine
 
   # Moves into the directory and cleans up the bundle archive.
+    echo "Moving into the directory and cleaning up the bundle archive..."
     cd fast-headers-linux && rm ../linux-stable.git.bundle
 
   # Points your main origin to Ingo Molnar’s tip.git tree.
+    echo "Pointing your main origin to Ingo Molnar’s tip.git tree..."
     git remote set-url origin git://git.kernel.org/pub/scm/linux/kernel/git/mingo/tip.git
 
   # Optional: Adds Linus Torvalds' mainline tree as a reference point.
+    echo "Optional: Adding Linus Torvalds' mainline tree as a reference point..."
     git remote add mainline https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
 
   # Fetches the specific experimental fast-header branches.
+    echo "Fetching the specific experimental fast-header branches..."
     git fetch origin
 }
 
