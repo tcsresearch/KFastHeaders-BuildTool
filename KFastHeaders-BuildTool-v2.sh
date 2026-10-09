@@ -7,6 +7,25 @@
   # DEFINE FUNCTIONS #                                                                                               #
 ######################################################################################################################
   
+function DisplayBanner() {
+  echo "$(basename -- "$0") - A tool to buld the kernel-fastheaders project w/ functions and echo output."
+  echo " "
+}
+
+function NewLine() {
+  echo " "
+}
+
+function DisplayLine() {
+  echo "--------------------------------------------------------------------------------------------"
+}
+
+function NewLineCinema() {
+  NewLine
+  DisplayLine
+  NewLine
+}
+
 function Pause() {
   read -rsn1 -p "Press any key to continue..."
 echo "" # Adds a newline since the keypress won't create one
@@ -70,10 +89,21 @@ function Run_Step_3() {
 
 
 #######################################################################################################################
-  # How to Structure Your Test A/B Comparison #                                                                       #
+  # MAIN PROGRAM #                                                                                                    #
 #######################################################################################################################    
 
-  # 1. Clean state: Always run make mrproper or make clean before changing branches to ensure zero caching interference.
-  # 2. Test A (Baseline): Checkout a standard mainline branch (e.g., git checkout mainline/master), run make defconfig, and time the build: time make -j$(nproc).
-  # 3. Test B (Fast Headers): Switch back to your my-fast-headers branch, apply the exact same config, and run time make -j$(nproc).
-  # Expectation: On a clean build using a heavy configuration, you should see a significant drop in total execution CPU time, as individual .c source files no longer cross-reference tens of thousands of unused legacy lines of code.
+DisplayBanner
+Pause
+
+NewLineCinema
+Run_Step_1
+Pause
+
+NewLineCinema
+Run_Step_2
+Pause
+
+NewLineCinema
+Run_Step_3
+
+
