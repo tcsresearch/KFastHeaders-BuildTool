@@ -35,8 +35,17 @@ echo "" # Adds a newline since the keypress won't create one
 }
 
 ######################################################################################################################
-  # DEFINE DISK SPACE CHECKER FUNCTION #                                                                             #
+  # DEFINE FUNCTIONS AND CONFIGS #                                                                                   #
 ######################################################################################################################
+
+function Source_Colors_Config() {
+  if [ -f "Colors2.conf" ]; then
+      source "Colors2.conf"
+      echo "Success: Colors2.conf has been found and sourced."
+  else
+      echo "Error: Colors2.conf not found." >&2
+  fi
+}
 
 function Source_DiskSpace_SanityChecker_Function() {
   if [ -f "CheckDiskSpaceFree.bfunc" ]; then
@@ -147,6 +156,7 @@ function GenerateDefConfig() {
 #######################################################################################################################    
 
 DisplayBanner
+Source_Colors_Config
 Source_DiskSpace_SanityChecker_Function
 Pause
 
