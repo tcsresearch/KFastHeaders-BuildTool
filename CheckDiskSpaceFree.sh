@@ -25,10 +25,10 @@ CheckDiskSpaceFree() {
 
     # Compare available space with required space
     if [ "$available_gb" -ge "$required_gb" ]; then
-        echo "${GREEN}[ OK ]${RESET}: $target_dir has ${available_gb}GB free (Required: ${required_gb}GB)."
+        echo -e "[ ${GREEN}OK${RESET} ]: $target_dir has ${available_gb}GB free (Required: ${required_gb}GB)."
         return 0
     else
-        echo "${RED}[ NOT OK ]${RESET}: $target_dir only has ${available_gb}GB free (Required: ${required_gb}GB)."
+        echo -e "[ ${RED}ERROR${RESET} ]: $target_dir only has ${available_gb}GB free (Required: ${required_gb}GB)."
         return 1
     fi
 }
