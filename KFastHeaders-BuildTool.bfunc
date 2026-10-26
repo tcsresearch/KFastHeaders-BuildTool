@@ -78,7 +78,7 @@ function Source_DiskSpace_SanityChecker_Function() {
 
 function Run_Step_1() {
   # Create fast-headers-linux folder if not exist
-    DIR="$(pwd)/KBundle"
+    BUNDLE_DIR="$(pwd)/KBundle"
 
   if [ ! -d "$BUNDLE_DIR" ]; then
     mkdir -p "$BUNDLE_DIR"
