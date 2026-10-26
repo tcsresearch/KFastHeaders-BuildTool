@@ -3,6 +3,9 @@
 
 # Taken From: https://share.google/aimode/f7uslf6jVOkDBry2z
 
+# shellcheck source=/dev/null
+# shellcheck disable=SC2329 
+
 ######################################################################################################################
   # DEFINE DISPLAY FUNCTIONS #                                                                                       #
 ######################################################################################################################
@@ -84,7 +87,7 @@ function Run_Step_1() {
     mkdir -p "$BUNDLE_DIR"
     echo "Folder $BUNDLE_DIR created successfully."
   else
-    echo "Folder $BUINDLE_DIR already exists."
+    echo "Folder $BUNDLE_DIR already exists."
   fi
 
   # Downloads the bulk of the kernel history via fast CDN.
