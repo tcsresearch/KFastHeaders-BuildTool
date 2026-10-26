@@ -88,7 +88,7 @@ function Run_Step_1() {
   fi
 
   # Downloads the bulk of the kernel history via fast CDN.
-    echo " Ready to download the kernerl history bundle, which requires a minimum of 5GB disk space and can take 30 minutes based on a 300MB internet speed."
+    echo " Ready to download the kernel history bundle, which requires a minimum of 5GB disk space and can take 30 minutes based on a 300MB internet speed."
     Pause
     CheckDiskSpaceFree . 6 # Confirm 6GB of space available before continuing...
     echo "Downloading the bulk of the kernel history via fast CDN..." 
