@@ -93,7 +93,8 @@ function Run_Step_1() {
     CheckDiskSpaceFree . 6 # Confirm 6GB of space available before continuing...
     echo "Downloading the bulk of the kernel history via fast CDN..." 
     # git clone linux-stable.git.bundle fast-headers-linux
-    wget -P "$BUNDLE_DIR" -N https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/clone.bundle 
+    wget -P "$BUNDLE_DIR" -N https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/clone.bundle
+    mv -v "$BUNDLE_DIR"/clone.bundle "$BUNDLE_DIR"/linux-stable.git.bundle
     NewLine
 
   # Initializes your repository locally from the bundle.
@@ -102,7 +103,7 @@ function Run_Step_1() {
     CheckDiskSpaceFree . 5 # Confirm 5GB of space available before continuing...
     echo "Initializing your repository locally from the bundle..."
     # git clone linux-stable.git.bundle fast-headers-linux
-    git clone linux-stable.git.bundle "$BUNDLE_DIR"
+    git clone "$BUNDLE_DIR"/linux-stable.git.bundle fast-headers-linux
     NewLine
 
   # Moves into the directory and cleans up the bundle archive.
