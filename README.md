@@ -1,6 +1,13 @@
 ## KFastHeaders-BuildTool - Tool to download and setup kernel-fastheaders
 
 <hr>
+<p> <h4> ShellCheck Compliance </h4>
+  :white_check_mark: This code was verified as ShellCheck compliant as of 10/26/2026. <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code added after this date may or may not remain in compliance.
+</p>
+<hr>
+
+<hr>
   <h3> How to Structure Your Test A/B Comparison </h3>
   <ul>
     <li> <b> 1. Clean state: </b> Always run make mrproper or make clean before changing branches to ensure zero caching interference. </li>
