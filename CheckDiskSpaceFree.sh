@@ -1,7 +1,7 @@
 CheckDiskSpaceFree() {
     # Ensure both arguments are provided
     if [ -z "$1" ] || [ -z "$2" ]; then
-        echo "$0 Usage: CheckDiskSpaceFree <directory> <required_bg_gb>"
+        echo "Usage: CheckDiskSpaceFree <directory> <required_bg_gb>"
         return 1
     fi
 
