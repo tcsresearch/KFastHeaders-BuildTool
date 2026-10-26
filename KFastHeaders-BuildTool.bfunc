@@ -77,12 +77,23 @@ function Source_DiskSpace_SanityChecker_Function() {
 ######################################################################################################################
 
 function Run_Step_1() {
+  # Create fast-headers-linux folder if not exist
+    DIR="$(pwd)/fast-headers-linux"
+
+  if [ ! -d "$BUNDLE_DIR" ]; then
+    mkdir -p "$BUNDLE_DIR"
+    echo "Folder $BUNDLE_DIR created successfully."
+  else
+    echo "Folder $BUINDLE_DIR already exists."
+  fi
+
   # Downloads the bulk of the kernel history via fast CDN.
     echo " Ready to download the kernerl history bundle, which requires a minimum of 5GB disk space and can take 30 minutes based on a 300MB internet speed."
     Pause
     CheckDiskSpaceFree . 6 # Confirm 6GB of space available before continuing...
     echo "Downloading the bulk of the kernel history via fast CDN..." 
-    git clone linux-stable.git.bundle fast-headers-linux
+    # git clone linux-stable.git.bundle fast-headers-linux
+    wget -P "$BUNDLE_DIR" -N https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/clone.bundle 
     NewLine
 
   # Initializes your repository locally from the bundle.
@@ -90,7 +101,8 @@ function Run_Step_1() {
     Pause
     CheckDiskSpaceFree . 5 # Confirm 5GB of space available before continuing...
     echo "Initializing your repository locally from the bundle..."
-    git clone linux-stable.git.bundle fast-headers-linux
+    # git clone linux-stable.git.bundle fast-headers-linux
+    git clone linux-stable.git.bundle "$BUNDLE_DIR"
     NewLine
 
   # Moves into the directory and cleans up the bundle archive.
