@@ -17,4 +17,4 @@ CheckDiskSpaceFree . 4
 
 # Retrieve Linux Kernel Bundle.
 echo "Retrieving Linux Kernel Bundle..."
-wget -c -P "$BUNDLE_DIR" "$BUNDLE_URL" 
+wget -nc -P "$BUNDLE_DIR" "$BUNDLE_URL" 
