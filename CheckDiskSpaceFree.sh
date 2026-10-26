@@ -1,3 +1,7 @@
+#!/bin/env bash
+
+# shellcheck source=/dev/null
+
 CheckDiskSpaceFree() {
     # Ensure both arguments are provided
     if [ -z "$1" ] || [ -z "$2" ]; then
@@ -24,4 +28,4 @@ CheckDiskSpaceFree() {
 }
 
 # Run Function #
-  CheckDiskSpaceFree $1 $2
+  CheckDiskSpaceFree "$1" "$2"
