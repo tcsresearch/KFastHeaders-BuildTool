@@ -2,6 +2,12 @@
 
 # shellcheck source=/dev/null
 
+# Define color variables
+GREEN='\e[32m'
+RED='\e[31m'
+RESET='\e[0m'
+
+
 CheckDiskSpaceFree() {
     # Ensure both arguments are provided
     if [ -z "$1" ] || [ -z "$2" ]; then
@@ -19,10 +25,10 @@ CheckDiskSpaceFree() {
 
     # Compare available space with required space
     if [ "$available_gb" -ge "$required_gb" ]; then
-        echo "Success: $target_dir has ${available_gb}GB free (Required: ${required_gb}GB)."
+        echo "${GREEN}[ OK ]${RESET}: $target_dir has ${available_gb}GB free (Required: ${required_gb}GB)."
         return 0
     else
-        echo "Error: $target_dir only has ${available_gb}GB free (Required: ${required_gb}GB)."
+        echo "${RED}[ NOT OK ]${RESET}: $target_dir only has ${available_gb}GB free (Required: ${required_gb}GB)."
         return 1
     fi
 }
