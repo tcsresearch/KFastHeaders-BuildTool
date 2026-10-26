@@ -169,13 +169,13 @@ NewLine
 
 # Only Run PreLoaders When Set To TRUE under Runtime Configuration.
 	# Check and run PreLoad_Configs if Enabled
-	[[ "$PRELOAD_CONFIGS" == "TRUE" ]] && PreLoad_Configs
+	[[ "$PRELOAD_CONFIGS" == "TRUE" ]] && PreLoad_Configs "$@" # Fixes SC2119 & SC2120
 
 	# Check and run PreLoad_Functions if Enabled
-	[[ "$PRELOAD_FUNCTIONS" == "TRUE" ]] && PreLoad_Functions
+	[[ "$PRELOAD_FUNCTIONS" == "TRUE" ]] && PreLoad_Functions "$@" # Fixes SC2119 & SC2120
 
 	# Check and run PreLoad_Profiles if Enabled
-	[[ "$PRELOAD_PROFILES" == "TRUE" ]] && PreLoad_Profiles
+	[[ "$PRELOAD_PROFILES" == "TRUE" ]] && PreLoad_Profiles "$@" # Fixes SC2119 & SC2120
 
 
 
