@@ -1,13 +1,27 @@
 ## KFastHeaders-BuildTool - Tool to download and setup kernel-fastheaders
 
 <hr>
+
+> [!NOTE]
+> This code is in the very early stages of development and is far from complete. <br>
+<hr>
+
+> [!WARNING]
+> This code is highly experiemental and has NOT been fully implemented or tested yet. <br>
+<hr>
+
+> [!IMPORTANT]
+> Code is NOT suitable for production, and still lacks most features.
+
+
+<hr>
 <p> <h4> ShellCheck Compliance </h4>
   :white_check_mark: This code was verified as ShellCheck compliant as of 10/26/2026. <br>
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Code added after this date may or may not remain in compliance.
 </p>
 <hr>
 
-<hr>
+
   <h3> How to Structure Your Test A/B Comparison </h3>
   <ul>
     <li> <b> 1. Clean state: </b> Always run make mrproper or make clean before changing branches to ensure zero caching interference. </li>
@@ -17,7 +31,8 @@
   <b> Expectation: </b> On a clean build using a heavy configuration, you should see a significant drop in total execution CPU time, as individual .c source files no longer cross-reference tens of thousands of unused legacy lines of code.
 
 <hr>
-  <h3> CheckDiskSpaceFree.bfunc: How To Use </h3>
+  <h3> CheckDiskSpaceFree.bfunc: How To Use [ PENDING DEPRICATION] </h3>
+  <h4> NOTE: CheckDiskSpaceFree.bfunc is about to be superceded by CheckDiskSpaceFree.sh.</h4>
 
 1. Paste the function directly into your terminal, or add it to your ~/.bashrc file for permanent use.
 2. Run the function by passing the directory and the minimum required GB:
