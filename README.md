@@ -1,6 +1,12 @@
 ## KFastHeaders-BuildTool - Tool to download and setup kernel-fastheaders
 
 <hr>
+<h3>Project Status</h3>
+<p>
+  <!-- SHELLCHECK_COMPLIANCE_START --> <strong>Shellcheck Date Of Compliance:</strong> Pending Execution <!-- SHELLCHECK_COMPLIANCE_END -->
+</p>
+
+<hr>
 
 > [!NOTE]
 > This code is in the very early stages of development and is far from complete. <br>
